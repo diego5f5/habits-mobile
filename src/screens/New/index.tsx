@@ -40,11 +40,10 @@ export const New = () => {
   const handleCreateNewHabit = async () => {
     try {
       if (!title.trim() || weekDays.length === 0) {
-        Alert.alert(
+        return Alert.alert(
           "New habit",
           "Enter the name of the habit and choose the frequency."
         );
-        return;
       }
 
       await api.post("/habits", { title, weekDays });

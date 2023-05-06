@@ -10,15 +10,22 @@ import colors from "tailwindcss/colors";
 interface CheckboxProps extends TouchableOpacityProps {
   title: string;
   checked?: boolean;
+  disabled?: boolean;
   onPress: () => void;
 }
 
-export const Checkbox = ({ title, checked, onPress }: CheckboxProps) => {
+export const Checkbox = ({
+  title,
+  checked,
+  onPress,
+  disabled,
+}: CheckboxProps) => {
   return (
     <TouchableOpacity
       activeOpacity={0.7}
       className="flex-row mb-2 items-center"
       onPress={onPress}
+      disabled={disabled}
     >
       {checked ? (
         <View className="h-8 w-8 bg-green-500 rounded-lg items-center justify-center">

@@ -1,6 +1,6 @@
-import { useEffect, useState } from "react";
+import { useCallback, useState } from "react";
 import { Text, View, ScrollView, Alert } from "react-native";
-import { useNavigation } from "@react-navigation/native";
+import { useNavigation, useFocusEffect } from "@react-navigation/native";
 import dayjs from "dayjs";
 
 import { Header } from "../../components/Header";
@@ -35,8 +35,6 @@ export const Home = () => {
       setLoading(true);
       const response = await api.get("/summary");
 
-      console.log("test", response.data);
-
       setSummary(response.data);
     } catch (error) {
       Alert.alert("Ops!", "Could not load habit summary.");
@@ -45,9 +43,11 @@ export const Home = () => {
     }
   };
 
-  useEffect(() => {
-    fetchData();
-  }, []);
+  useFocusEffect(
+    useCallback(() => {
+      fetchData();
+    }, [])
+  );
 
   if (loading) {
     return <Loading />;
