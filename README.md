@@ -12,7 +12,7 @@ The project is divided into 3 repositories:
 
 See how it looks on the mobile:
 
-![Habits mobile](https://raw.githubusercontent.com/diego5f5/habits-mobile/main/readme-assets/main.png)
+<img src="https://raw.githubusercontent.com/diego5f5/habits-mobile/main/readme-assets/main.png" alt="Habits mobile" height="500">
 
 ## Getting Started
 
